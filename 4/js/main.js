@@ -66,4 +66,8 @@ const createFotoDescription = () => ({
   comments: Array.from({length: getRandomNumber(1,5)}, createCommets),
 });
 const fotoDescription = Array.from({length: numberDescriptions}, createFotoDescription);
+const fotoDescription2 = function(){
+  return fotoDescription;
+};
+fotoDescription2();
 
