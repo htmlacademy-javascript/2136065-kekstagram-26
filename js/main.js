@@ -17,15 +17,15 @@ function getStringLength (string, limit){
 }
 getStringLength('тест', 5);
 let ident = 0;
-let getId = function(){
+const getId = function(){
   ident = ident+1;
   return ident;
-}
+};
 let ident2 = 0;
-let getId2 = function(){
+const getId2 = function(){
   ident2 = ident2+1;
   return ident2;
-}
+};
 const descriptions =[
   'Фото котика',
   'Фото песика',
@@ -51,27 +51,19 @@ const NAMES = [
   'Люпита',
   'Вашингтон',
 ];
-const getRandomArrayElement = (elements) => {
-  return elements[getRandomNumber(0, elements.length - 1)];
-};
-const createCommets = () => {
-  return {
+const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
+const createCommets = () => ({
   id: getId2(),
   avatar: `img/avatar-${getRandomNumber(1,6)}.svg`,
   message: getRandomArrayElement(MESSAGE),
   name: getRandomArrayElement(NAMES),
-  }
-}
-const createFotoDescription = () => {
-  return{
+});
+const createFotoDescription = () => ({
   id: getId(),
   url: `photos${ident}.jpg`,
   description: getRandomArrayElement(descriptions),
   likes: getRandomNumber(5,25),
   comments: Array.from({length: getRandomNumber(1,5)}, createCommets),
-}
-};
+});
 const fotoDescription = Array.from({length: numberDescriptions}, createFotoDescription);
-for (let i=0;i<=numberDescriptions-1;i++){
-  console.log(fotoDescription[i])
-}
+
