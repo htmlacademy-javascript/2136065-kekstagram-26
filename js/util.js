@@ -13,4 +13,4 @@ function getStringLength (string, limit){
   const lengthString = string.length;
   return(limit >= lengthString);
 }
-//export {getStringLength};
+export {getStringLength};
